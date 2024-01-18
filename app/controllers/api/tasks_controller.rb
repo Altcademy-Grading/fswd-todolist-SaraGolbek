@@ -21,7 +21,7 @@ module Api
       user = User.find_by(id: params[:api_key])
       @task = user.tasks.new(task_params)
 
-      return render 'bad_request', status: :bad_request unless @task.save
+      return render 'bad_request', status: :bad_request unless @task.save!
 
       render 'show', status: :ok
     end
